@@ -6,7 +6,7 @@ export default function ShowMovies({movies}) {
         <div>
             {
                 movies.map(movie => (
-                    
+                    <h3>{movie.title}</h3>
                 ))
             }
         </div>
@@ -15,7 +15,7 @@ export default function ShowMovies({movies}) {
 
 
 export async function getServerSideProps(context) {
-    const id = context.params.fid;
+    const id = context.params.gid;
     const filePath = path.join(process.cwd(),'data','data.json');
     const fileData = fs.readFileSync(filePath,'utf-8');
     const data = JSON.parse(fileData);

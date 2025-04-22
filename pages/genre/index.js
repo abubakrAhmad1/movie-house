@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import Link from "next/link";
 
 export default function Genres({ data }) {
   const allGenres = data.genres;
@@ -7,7 +8,7 @@ export default function Genres({ data }) {
     <div>
       <ul>
         {allGenres.map((genre) => (
-          <li>{genre.name}</li>
+          <li><Link href={`./genre/${genre.id}`}>{genre.name}</Link></li>
         ))}
       </ul>
     </div>
