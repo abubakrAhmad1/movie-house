@@ -12,7 +12,7 @@ export async function getStaticPaths() {
     paths: data.movies.map((movie) => ({
       params: { id: movie.id.toString() },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
