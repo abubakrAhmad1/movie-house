@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import Link from 'next/link';
 
 export async function getStaticPaths() {
   const filePath = path.join(process.cwd(), "data", "data.json");
@@ -28,6 +29,7 @@ export async function getStaticProps({ params }) {
     props: {
       movie: selectedMovie,
     },
+    revalidate : 10
   };
 }
 
@@ -37,6 +39,7 @@ export default function Discription({ movie }) {
       <h2>{movie.title}</h2>
       <p>{movie.description}</p>
       <p>{movie.releaseYear}</p>
+      <Link href = {`/movies/${movie.id}/director`}>Director</Link>
       <p>{movie.rating}</p>
     </div>
   );
